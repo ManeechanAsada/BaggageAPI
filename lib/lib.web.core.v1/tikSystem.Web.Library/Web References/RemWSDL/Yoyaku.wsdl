@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://rem.kessai.info/Kessai/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://rem.kessai.info/Kessai/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://rem.kessai.info/Kessai/">
+      <s:element name="YoyakuSyunoRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inData" type="tns:InParamSyuno" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InParamSyuno">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcJigyosyaNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcAnkenNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcNinsyoKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoOpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoCorpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoTel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoNameKanji" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayLimit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoReserveNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoMemberNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoNameKana" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoFreeArray" type="tns:ArrayOfSyunoFree" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSyunoFree">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SyunoFree" nillable="true" type="tns:SyunoFree" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SyunoFree">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Index" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoFreeStr" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="YoyakuSyunoRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YoyakuSyunoRequestResult" type="tns:OutParamSyuno" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OutParamSyuno">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KKessaiNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FreeArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoMMSNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WellnetSoapHeader" type="tns:WellnetSoapHeader" />
+      <s:complexType name="WellnetSoapHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="YoyakuBarCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inData" type="tns:InParamBarCode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InParamBarCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcJigyosyaNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcAnkenNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcNinsyoKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcBarData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcGetStart" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcGetEnd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcUseStart" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcUseEnd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcDataKubun" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcNinsyoPassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcScriptArray" type="tns:ArrayOfBcScript" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcTanmatsuId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcUserId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcUserAgent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcFreeBuffer" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBcScript">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BcScript" nillable="true" type="tns:BcScript" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BcScript">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Index" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcScriptStr" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="YoyakuBarCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YoyakuBarCodeResult" type="tns:OutParamBarCode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OutParamBarCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KKessaiNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FreeArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcJigyosyaNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcAnkenNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcNinsyoKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcServiceKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcBarData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcSyoriDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="YoyakuNyukin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inData" type="tns:InParamNyukin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InParamNyukin">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NyukinPayCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NyukinRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NyukinCorpCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="YoyakuNyukinResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YoyakuNyukinResult" type="tns:OutParamNyukin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OutParamNyukin">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KKessaiNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FreeArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NyukinPayCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NyukinRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NyukinCorpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NyukinReferDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NyukinCvsCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NyukinShopCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NyukinMmsNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NyukinPaidDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NyukinPaidAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NyukinInshiFlag" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="YoyakuSyunoBarCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inData" type="tns:InParamSyunoBarCode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InParamSyunoBarCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcJigyosyaNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcAnkenNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcNinsyoKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoOpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoCorpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoTel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoNameKanji" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayLimit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoReserveNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoMemberNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoNameKana" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoFreeArray" type="tns:ArrayOfSyunoFree" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcNinsyoPassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcScriptArray" type="tns:ArrayOfBcScript" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcTanmatsuId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcUserId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcUserAgent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcFreeBuffer" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="YoyakuSyunoBarCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YoyakuSyunoBarCodeResult" type="tns:OutParamSyunoBarCode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OutParamSyunoBarCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KKessaiNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FreeArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcJigyosyaNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcAnkenNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcNinsyoKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoMMSNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcServiceKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcBarData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcSyoriDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="YoyakuSyunoETicket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inData" type="tns:InParamSyunoETicket" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InParamSyunoETicket">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:InParamSyunoBarCode" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="YoyakuSyunoETicketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YoyakuSyunoETicketResult" type="tns:OutParamSyunoETicket" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OutParamSyunoETicket">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KKessaiNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FreeArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcJigyosyaNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcAnkenNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcNinsyoKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoMMSNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcSyoriDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="YoyakuSyunoPlusBarCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inData" type="tns:InParamSyunoPlusBarCode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InParamSyunoPlusBarCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcJigyosyaNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcAnkenNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcNinsyoKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoOpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoCorpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoTel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoNameKanji" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayLimit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcBarData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcGetStart" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcGetEnd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcUseStart" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcUseEnd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcDataKubun" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoReserveNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoMemberNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoNameKana" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoFreeArray" type="tns:ArrayOfSyunoFree" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcNinsyoPassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcScriptArray" type="tns:ArrayOfBcScript" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcTanmatsuId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcUserId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcUserAgent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcFreeBuffer" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="YoyakuSyunoPlusBarCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YoyakuSyunoPlusBarCodeResult" type="tns:OutParamSyunoPlusBarCode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OutParamSyunoPlusBarCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KKessaiNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FreeArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcJigyosyaNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcAnkenNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcNinsyoKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoMMSNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcServiceKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcBarData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcSyoriDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="YoyakuTomeokiRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inData" type="tns:InParamTomeoki" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InParamTomeoki">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcJigyosyaNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcAnkenNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BcNinsyoKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoOpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoCorpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoTel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoNameKanji" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayLimit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoReserveNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoMemberNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoNameKana" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoFreeArray" type="tns:ArrayOfSyunoFree" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="YoyakuTomeokiRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YoyakuTomeokiRequestResult" type="tns:OutParamTomeoki" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OutParamTomeoki">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KKessaiNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FreeArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoPayCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SyunoMMSNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CashOutRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inData" type="tns:InParamCashOutRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InParamCashOutRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoPayCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoJigyosyaNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoAnkenNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoWcosPassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoOpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoCorpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoTel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoNameKanji" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoTranLimit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoTranAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoReserveNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoMemberNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoNameKana" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoFreeArray" type="tns:ArrayOfCashOutFree" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCashOutFree">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CashOutFree" nillable="true" type="tns:CashOutFree" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CashOutFree">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Index" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CashOutFreeStr" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CashOutRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CashOutRequestResult" type="tns:OutParamCashOutRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OutParamCashOutRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoYoyakuNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoWcosId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoWcosPassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoUrl" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CashOutConsequence">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inData" type="tns:InParamCashOutConsequence" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InParamCashOutConsequence">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoCorpCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CashOutConsequenceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CashOutConsequenceResult" type="tns:OutParamCashOutConsequence" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OutParamCashOutConsequence">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSyubetsu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoYoyakuNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FreeArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoRecvNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoCorpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoReqDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoReqType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoShopCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoMmsNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoCompDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoTranAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoInshiFlag" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="YoyakuSyunoRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:YoyakuSyunoRequest" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuSyunoRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:YoyakuSyunoRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuSyunoRequestWellnetSoapHeader">
+    <wsdl:part name="WellnetSoapHeader" element="tns:WellnetSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuBarCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:YoyakuBarCode" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuBarCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:YoyakuBarCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuBarCodeWellnetSoapHeader">
+    <wsdl:part name="WellnetSoapHeader" element="tns:WellnetSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuNyukinSoapIn">
+    <wsdl:part name="parameters" element="tns:YoyakuNyukin" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuNyukinSoapOut">
+    <wsdl:part name="parameters" element="tns:YoyakuNyukinResponse" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuNyukinWellnetSoapHeader">
+    <wsdl:part name="WellnetSoapHeader" element="tns:WellnetSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuSyunoBarCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:YoyakuSyunoBarCode" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuSyunoBarCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:YoyakuSyunoBarCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuSyunoBarCodeWellnetSoapHeader">
+    <wsdl:part name="WellnetSoapHeader" element="tns:WellnetSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuSyunoETicketSoapIn">
+    <wsdl:part name="parameters" element="tns:YoyakuSyunoETicket" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuSyunoETicketSoapOut">
+    <wsdl:part name="parameters" element="tns:YoyakuSyunoETicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuSyunoETicketWellnetSoapHeader">
+    <wsdl:part name="WellnetSoapHeader" element="tns:WellnetSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuSyunoPlusBarCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:YoyakuSyunoPlusBarCode" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuSyunoPlusBarCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:YoyakuSyunoPlusBarCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuSyunoPlusBarCodeWellnetSoapHeader">
+    <wsdl:part name="WellnetSoapHeader" element="tns:WellnetSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuTomeokiRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:YoyakuTomeokiRequest" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuTomeokiRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:YoyakuTomeokiRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="YoyakuTomeokiRequestWellnetSoapHeader">
+    <wsdl:part name="WellnetSoapHeader" element="tns:WellnetSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="CashOutRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:CashOutRequest" />
+  </wsdl:message>
+  <wsdl:message name="CashOutRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:CashOutRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="CashOutRequestWellnetSoapHeader">
+    <wsdl:part name="WellnetSoapHeader" element="tns:WellnetSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="CashOutConsequenceSoapIn">
+    <wsdl:part name="parameters" element="tns:CashOutConsequence" />
+  </wsdl:message>
+  <wsdl:message name="CashOutConsequenceSoapOut">
+    <wsdl:part name="parameters" element="tns:CashOutConsequenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="CashOutConsequenceWellnetSoapHeader">
+    <wsdl:part name="WellnetSoapHeader" element="tns:WellnetSoapHeader" />
+  </wsdl:message>
+  <wsdl:portType name="YoyakuSoap">
+    <wsdl:operation name="YoyakuSyunoRequest">
+      <wsdl:input message="tns:YoyakuSyunoRequestSoapIn" />
+      <wsdl:output message="tns:YoyakuSyunoRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YoyakuBarCode">
+      <wsdl:input message="tns:YoyakuBarCodeSoapIn" />
+      <wsdl:output message="tns:YoyakuBarCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YoyakuNyukin">
+      <wsdl:input message="tns:YoyakuNyukinSoapIn" />
+      <wsdl:output message="tns:YoyakuNyukinSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YoyakuSyunoBarCode">
+      <wsdl:input message="tns:YoyakuSyunoBarCodeSoapIn" />
+      <wsdl:output message="tns:YoyakuSyunoBarCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YoyakuSyunoETicket">
+      <wsdl:input message="tns:YoyakuSyunoETicketSoapIn" />
+      <wsdl:output message="tns:YoyakuSyunoETicketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YoyakuSyunoPlusBarCode">
+      <wsdl:input message="tns:YoyakuSyunoPlusBarCodeSoapIn" />
+      <wsdl:output message="tns:YoyakuSyunoPlusBarCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YoyakuTomeokiRequest">
+      <wsdl:input message="tns:YoyakuTomeokiRequestSoapIn" />
+      <wsdl:output message="tns:YoyakuTomeokiRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CashOutRequest">
+      <wsdl:input message="tns:CashOutRequestSoapIn" />
+      <wsdl:output message="tns:CashOutRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CashOutConsequence">
+      <wsdl:input message="tns:CashOutConsequenceSoapIn" />
+      <wsdl:output message="tns:CashOutConsequenceSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="YoyakuSoap" type="tns:YoyakuSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="YoyakuSyunoRequest">
+      <soap:operation soapAction="http://rem.kessai.info/Kessai/YoyakuSyunoRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:YoyakuSyunoRequestWellnetSoapHeader" part="WellnetSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YoyakuBarCode">
+      <soap:operation soapAction="http://rem.kessai.info/Kessai/YoyakuBarCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:YoyakuBarCodeWellnetSoapHeader" part="WellnetSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YoyakuNyukin">
+      <soap:operation soapAction="http://rem.kessai.info/Kessai/YoyakuNyukin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:YoyakuNyukinWellnetSoapHeader" part="WellnetSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YoyakuSyunoBarCode">
+      <soap:operation soapAction="http://rem.kessai.info/Kessai/YoyakuSyunoBarCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:YoyakuSyunoBarCodeWellnetSoapHeader" part="WellnetSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YoyakuSyunoETicket">
+      <soap:operation soapAction="http://rem.kessai.info/Kessai/YoyakuSyunoETicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:YoyakuSyunoETicketWellnetSoapHeader" part="WellnetSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YoyakuSyunoPlusBarCode">
+      <soap:operation soapAction="http://rem.kessai.info/Kessai/YoyakuSyunoPlusBarCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:YoyakuSyunoPlusBarCodeWellnetSoapHeader" part="WellnetSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YoyakuTomeokiRequest">
+      <soap:operation soapAction="http://rem.kessai.info/Kessai/YoyakuTomeokiRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:YoyakuTomeokiRequestWellnetSoapHeader" part="WellnetSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CashOutRequest">
+      <soap:operation soapAction="http://rem.kessai.info/Kessai/CashOutRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CashOutRequestWellnetSoapHeader" part="WellnetSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CashOutConsequence">
+      <soap:operation soapAction="http://rem.kessai.info/Kessai/CashOutConsequence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CashOutConsequenceWellnetSoapHeader" part="WellnetSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Yoyaku">
+    <wsdl:port name="YoyakuSoap" binding="tns:YoyakuSoap">
+      <soap:address location="http://rem.kessai.info/KessaiTest/Yoyaku.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

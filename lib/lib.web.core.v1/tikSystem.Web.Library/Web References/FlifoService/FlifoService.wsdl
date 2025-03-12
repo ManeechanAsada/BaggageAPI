@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.flywithstyle.com/flifoservice" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.flywithstyle.com/flifoservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.flywithstyle.com/flifoservice">
+      <s:element name="flight_information">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fReq" type="tns:FlifoRequest" />
+            <s:element minOccurs="0" maxOccurs="1" name="base64SHA1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userCredeitial" type="tns:UserCredentials" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FlifoRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="airline_rcd" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="flight_number" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="flight_date_from" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="flight_date_to" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_information_1_update" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_information_1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_information_2_update" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_information_2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_information_3_update" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_information_3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserCredentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="flight_informationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="flight_informationResult" type="tns:FlifoResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FlifoResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="result" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="errorCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="get_schedule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="creq" type="tns:ScheduleRequest" />
+            <s:element minOccurs="0" maxOccurs="1" name="base64SHA1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userCredeitial" type="tns:UserCredentials" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ScheduleRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="departure_date_from" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="departure_date_to" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="airline_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="origin_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="destination_rcd" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="get_scheduleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_scheduleResult" type="tns:ScheduleResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ScheduleResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="schedules" type="tns:ArrayOfSchedule" />
+          <s:element minOccurs="0" maxOccurs="1" name="result" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="errorCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSchedule">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Schedule" nillable="true" type="tns:Schedule" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Schedule">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="schedule_id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="flight_date_from" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="flight_date_to" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="mon_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="tue_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="wed_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="thu_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="fri_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="sat_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="sun_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="flight_generated_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="controlling_agency_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="operating_airline_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="airline_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="aircraft_type_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="origin_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="destination_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="schedule_comment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="matriculation_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_status_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="operating_flight_number" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="auto_open_checkin_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="allow_web_checkin_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_information_1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_information_2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_information_3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="hide_from_availability_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="distribute_schedule_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="e_ticket_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="non_smoking_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="exclude_statistics_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="schedule_group_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="service_type_rcd" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="send_avs_message_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="exclude_pnl_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="exclude_pfs_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="schedule_distribute_date_time" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="flightLegs" type="tns:ArrayOfScheduleFlightLeg" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfScheduleFlightLeg">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScheduleFlightLeg" nillable="true" type="tns:ScheduleFlightLeg" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScheduleFlightLeg">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="schedule_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="departure_airport_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="planned_departure_time" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="arrival_airport_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="planned_arrival_time" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="boarding_time" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="boarding_gate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="arrival_gate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="checkin_pnl_hours" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="open_flight_hours" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="get_flights">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="freq" type="tns:FlightsRequest" />
+            <s:element minOccurs="0" maxOccurs="1" name="base64SHA1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userCredeitial" type="tns:UserCredentials" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FlightsRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="departure_date_from" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="departure_date_to" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="airline_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="origin_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="destination_rcd" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="get_flightsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_flightsResult" type="tns:FlightsResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FlightsResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Flights" type="tns:ArrayOfFlights" />
+          <s:element minOccurs="0" maxOccurs="1" name="result" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="errorCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFlights">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Flights" nillable="true" type="tns:Flights" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Flights">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="flight_id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="utc_departure_date" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="airline_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_status_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="aircraft_type_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="matriculation_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="operating_airline_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="operating_flight_number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="origin_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="destination_rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_comment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="internal_comment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="controlling_agency_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="schedule_id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="free_seating_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="auto_open_checkin_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="allow_web_checkin_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_information_1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_information_2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_information_3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="exclude_statistics_flag" nillable="true" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="dot_reporting_date_time" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="flight_legs" type="tns:ArrayOfFlightLegs" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFlightLegs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FlightLegs" nillable="true" type="tns:FlightLegs" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FlightLegs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="flight_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="departure_airport_rcd" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="departure_date" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="utc_departure_date_time" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="planned_departure_time" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="arrival_airport_rcd" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="arrival_date" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="utc_arrival_date_time" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="planned_arrival_time" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="flight_informationSoapIn">
+    <wsdl:part name="parameters" element="tns:flight_information" />
+  </wsdl:message>
+  <wsdl:message name="flight_informationSoapOut">
+    <wsdl:part name="parameters" element="tns:flight_informationResponse" />
+  </wsdl:message>
+  <wsdl:message name="get_scheduleSoapIn">
+    <wsdl:part name="parameters" element="tns:get_schedule" />
+  </wsdl:message>
+  <wsdl:message name="get_scheduleSoapOut">
+    <wsdl:part name="parameters" element="tns:get_scheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="get_flightsSoapIn">
+    <wsdl:part name="parameters" element="tns:get_flights" />
+  </wsdl:message>
+  <wsdl:message name="get_flightsSoapOut">
+    <wsdl:part name="parameters" element="tns:get_flightsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FlifoServiceSoap">
+    <wsdl:operation name="flight_information">
+      <wsdl:input message="tns:flight_informationSoapIn" />
+      <wsdl:output message="tns:flight_informationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get_schedule">
+      <wsdl:input message="tns:get_scheduleSoapIn" />
+      <wsdl:output message="tns:get_scheduleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get_flights">
+      <wsdl:input message="tns:get_flightsSoapIn" />
+      <wsdl:output message="tns:get_flightsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FlifoServiceSoap" type="tns:FlifoServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="flight_information">
+      <soap:operation soapAction="http://www.flywithstyle.com/flifoservice/flight_information" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_schedule">
+      <soap:operation soapAction="http://www.flywithstyle.com/flifoservice/get_schedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_flights">
+      <soap:operation soapAction="http://www.flywithstyle.com/flifoservice/get_flights" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FlifoServiceSoap12" type="tns:FlifoServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="flight_information">
+      <soap12:operation soapAction="http://www.flywithstyle.com/flifoservice/flight_information" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_schedule">
+      <soap12:operation soapAction="http://www.flywithstyle.com/flifoservice/get_schedule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_flights">
+      <soap12:operation soapAction="http://www.flywithstyle.com/flifoservice/get_flights" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FlifoService">
+    <wsdl:port name="FlifoServiceSoap" binding="tns:FlifoServiceSoap">
+      <soap:address location="http://www.flywithstyle.com/flifoservice_new/FlifoService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FlifoServiceSoap12" binding="tns:FlifoServiceSoap12">
+      <soap12:address location="http://www.flywithstyle.com/flifoservice_new/FlifoService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

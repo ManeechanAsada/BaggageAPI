@@ -1,0 +1,1995 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://ACE.Global.Travel.CRS.Schemas.ACORD.WS/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s4="http://ACE.Global.Travel.CRS.Schemas.ACORD_PolicyReq" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:s8="http://ACE.Global.Travel.CRS.Schemas.ACORD_PolicyArrayResp" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s5="http://ACE.Global.Travel.CRS.Schemas.PaymentProcess" xmlns:s1="http://ACE.Global.Travel.CRS.Schemas.ACORD_QuoteReq" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s6="http://ACE.Global.Travel.CRS.Schemas.ACORD_PolicyResp" xmlns:s2="http://ACE.Global.Travel.CRS.Schemas.ACORD_QuoteResp" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s7="http://ACE.Global.Travel.CRS.Schemas.ACORD_PolicyDetailsReq" xmlns:s3="http://ACE.Global.Travel.CRS.Schemas.ACORD_QuoteArrayResp" targetNamespace="http://ACE.Global.Travel.CRS.Schemas.ACORD.WS/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ACE.Global.Travel.CRS.Schemas.ACORD.WS/">
+      <s:import namespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_QuoteReq" />
+      <s:import namespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_QuoteResp" />
+      <s:import namespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_QuoteArrayResp" />
+      <s:import namespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_PolicyReq" />
+      <s:import namespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_PolicyResp" />
+      <s:import namespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_PolicyDetailsReq" />
+      <s:import namespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_PolicyArrayResp" />
+      <s:element name="GetTravelQuote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ACORD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTravelQuoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s2:ACORD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTravelQuoteArray">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ACORD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTravelQuoteArrayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s3:ArrayOfACORD_QuoteResp" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTravelPolicy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s4:ACORD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTravelPolicyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s6:ACORD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTravelPolicyDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s7:ACORD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTravelPolicyDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s8:ArrayOfACORD_PolicyResp" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_QuoteReq">
+      <s:element name="ACORD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SignonRq">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="SignonPswd">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CustId">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="1" name="SPName" type="s:string" />
+                              <s:element minOccurs="0" maxOccurs="1" name="CustLoginId" type="s:string" />
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="0" maxOccurs="1" name="CustPswd">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="1" maxOccurs="1" name="EncryptionTypeCd">
+                                <s:simpleType>
+                                  <s:restriction base="s:string">
+                                    <s:enumeration value="MD5" />
+                                    <s:enumeration value="SHA1" />
+                                    <s:enumeration value="None" />
+                                  </s:restriction>
+                                </s:simpleType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="Pswd" type="s:string" />
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                  <s:element minOccurs="1" maxOccurs="1" name="ClientDt" type="s:dateTime" />
+                  <s:element minOccurs="0" maxOccurs="1" name="CustLangPref" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="ClientApp">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Org" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:decimal" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="InsuranceSvcRq">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PersPkgPolicyQuoteInqRq">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="TransactionRequestDt" type="s:dateTime" />
+                        <s:element minOccurs="1" maxOccurs="1" name="InsuredOrPrincipal" nillable="true">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="1" name="GeneralPartyInfo">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="unbounded" name="NameInfo">
+                                      <s:complexType>
+                                        <s:sequence>
+                                          <s:element minOccurs="0" maxOccurs="1" name="PersonName">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+                                                <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string" />
+                                                <s:element minOccurs="0" maxOccurs="1" name="TitlePrefix" type="s:string" />
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="SupplementaryNameInfo">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="1" maxOccurs="1" name="SupplementaryNameCd">
+                                                  <s:simpleType>
+                                                    <s:restriction base="s:string">
+                                                      <s:enumeration value="AKA" />
+                                                      <s:enumeration value="Alias" />
+                                                      <s:enumeration value="ATTN" />
+                                                      <s:enumeration value="Branch" />
+                                                      <s:enumeration value="DBA" />
+                                                      <s:enumeration value="Division" />
+                                                      <s:enumeration value="Maiden" />
+                                                      <s:enumeration value="OWNER" />
+                                                      <s:enumeration value="Previous" />
+                                                      <s:enumeration value="PrimaryContact" />
+                                                      <s:enumeration value="SearchName" />
+                                                      <s:enumeration value="TBA" />
+                                                    </s:restriction>
+                                                  </s:simpleType>
+                                                </s:element>
+                                                <s:element minOccurs="0" maxOccurs="1" name="SupplementaryName">
+                                                  <s:complexType>
+                                                    <s:sequence>
+                                                      <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+                                                      <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string" />
+                                                      <s:element minOccurs="0" maxOccurs="1" name="TitlePrefix" type="s:string" />
+                                                    </s:sequence>
+                                                  </s:complexType>
+                                                </s:element>
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="TitleRelationshipDesc" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="BirthDt" type="s:date" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Gender">
+                                            <s:simpleType>
+                                              <s:restriction base="s:string">
+                                                <s:enumeration value="F" />
+                                                <s:enumeration value="M" />
+                                                <s:enumeration value="U" />
+                                              </s:restriction>
+                                            </s:simpleType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="IdNumberTypeCd">
+                                            <s:simpleType>
+                                              <s:restriction base="s:string">
+                                                <s:enumeration value="Passport" />
+                                                <s:enumeration value="IDNumber" />
+                                              </s:restriction>
+                                            </s:simpleType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="IdNumber" type="s:string" />
+                                        </s:sequence>
+                                        <s:attribute name="id" type="s:string" />
+                                      </s:complexType>
+                                    </s:element>
+                                    <s:element minOccurs="0" maxOccurs="unbounded" name="Addr" nillable="true">
+                                      <s:complexType>
+                                        <s:sequence>
+                                          <s:element minOccurs="0" maxOccurs="1" name="Addr1" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Addr2" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Addr3" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="StateProv" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+                                        </s:sequence>
+                                        <s:attribute name="id" type="s:string" />
+                                        <s:attribute name="NameInfoRef" type="s:string" />
+                                      </s:complexType>
+                                    </s:element>
+                                    <s:element minOccurs="0" maxOccurs="unbounded" name="Communications">
+                                      <s:complexType>
+                                        <s:sequence>
+                                          <s:element minOccurs="0" maxOccurs="unbounded" name="PhoneInfo">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="1" maxOccurs="1" name="PhoneTypeCd">
+                                                  <s:simpleType>
+                                                    <s:restriction base="s:string">
+                                                      <s:enumeration value="Telephone" />
+                                                      <s:enumeration value="Cell" />
+                                                    </s:restriction>
+                                                  </s:simpleType>
+                                                </s:element>
+                                                <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="unbounded" name="EmailInfo">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="0" maxOccurs="1" name="EmailAddr" type="s:string" />
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                        </s:sequence>
+                                        <s:attribute name="id" type="s:string" />
+                                        <s:attribute name="NameInfoRef" type="s:string" />
+                                      </s:complexType>
+                                    </s:element>
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="0" maxOccurs="1" name="PersPolicy">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="1" name="CompanyProductCd" type="s:string" />
+                              <s:element minOccurs="0" maxOccurs="1" name="ContractTerm">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="1" maxOccurs="1" name="EffectiveDt" type="s:date" />
+                                    <s:element minOccurs="1" maxOccurs="1" name="ExpirationDt" type="s:date" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="com.acegroup_Destination">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="DestinationDesc" type="s:string" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="com.acegroup_InsuredPackage">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="InsuredPackageDesc" type="s:string" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="com.acegroup_Plan">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="PlanDesc" type="s:string" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="1" maxOccurs="1" name="com.acegroup_DataExtensions" nillable="true" type="s1:ArrayOfACORDInsuranceSvcRqPersPkgPolicyQuoteInqRqDataItem" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfACORDInsuranceSvcRqPersPkgPolicyQuoteInqRqDataItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataItem" nillable="true">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+              </s:sequence>
+              <s:attribute name="key" type="s:string" />
+              <s:attribute name="type" type="s:anyURI" />
+              <s:attribute name="IdRef" type="s:string" />
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_QuoteResp">
+      <s:element name="ACORD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SignonRs">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="1" maxOccurs="1" name="ClientDt" type="s:dateTime" />
+                  <s:element minOccurs="0" maxOccurs="1" name="CustLangPref" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="ClientApp">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Org" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:decimal" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                  <s:element minOccurs="1" maxOccurs="1" name="ServerDt" type="s:dateTime" />
+                  <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="InsuranceSvcRs">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PersPkgPolicyQuoteInqRs">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="TransactionResponseDt" type="s:dateTime" />
+                        <s:element minOccurs="0" maxOccurs="1" name="MsgStatus">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="1" maxOccurs="1" name="MsgStatusCd">
+                                <s:simpleType>
+                                  <s:restriction base="s:string">
+                                    <s:enumeration value="Error" />
+                                    <s:enumeration value="Rejected" />
+                                    <s:enumeration value="ResponsePending" />
+                                    <s:enumeration value="Success" />
+                                    <s:enumeration value="SuccessWithChanges" />
+                                    <s:enumeration value="SuccessWithInfo" />
+                                  </s:restriction>
+                                </s:simpleType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="MsgStatusDesc" type="s:string" />
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="1" maxOccurs="1" name="InsuredOrPrincipal" nillable="true">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="1" name="GeneralPartyInfo">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="unbounded" name="NameInfo">
+                                      <s:complexType>
+                                        <s:sequence>
+                                          <s:element minOccurs="0" maxOccurs="1" name="PersonName">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+                                                <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string" />
+                                                <s:element minOccurs="0" maxOccurs="1" name="TitlePrefix" type="s:string" />
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="SupplementaryNameInfo">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="1" maxOccurs="1" name="SupplementaryNameCd">
+                                                  <s:simpleType>
+                                                    <s:restriction base="s:string">
+                                                      <s:enumeration value="AKA" />
+                                                      <s:enumeration value="Alias" />
+                                                      <s:enumeration value="ATTN" />
+                                                      <s:enumeration value="Branch" />
+                                                      <s:enumeration value="DBA" />
+                                                      <s:enumeration value="Division" />
+                                                      <s:enumeration value="Maiden" />
+                                                      <s:enumeration value="OWNER" />
+                                                      <s:enumeration value="Previous" />
+                                                      <s:enumeration value="PrimaryContact" />
+                                                      <s:enumeration value="SearchName" />
+                                                      <s:enumeration value="TBA" />
+                                                    </s:restriction>
+                                                  </s:simpleType>
+                                                </s:element>
+                                                <s:element minOccurs="0" maxOccurs="1" name="SupplementaryName">
+                                                  <s:complexType>
+                                                    <s:sequence>
+                                                      <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+                                                      <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string" />
+                                                      <s:element minOccurs="0" maxOccurs="1" name="TitlePrefix" type="s:string" />
+                                                    </s:sequence>
+                                                  </s:complexType>
+                                                </s:element>
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="TitleRelationshipDesc" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="BirthDt" type="s:date" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Gender">
+                                            <s:simpleType>
+                                              <s:restriction base="s:string">
+                                                <s:enumeration value="F" />
+                                                <s:enumeration value="M" />
+                                                <s:enumeration value="U" />
+                                              </s:restriction>
+                                            </s:simpleType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="IdNumberTypeCd">
+                                            <s:simpleType>
+                                              <s:restriction base="s:string">
+                                                <s:enumeration value="Passport" />
+                                                <s:enumeration value="IDNumber" />
+                                              </s:restriction>
+                                            </s:simpleType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="IdNumber" type="s:string" />
+                                        </s:sequence>
+                                        <s:attribute name="id" type="s:string" />
+                                      </s:complexType>
+                                    </s:element>
+                                    <s:element minOccurs="0" maxOccurs="unbounded" name="Addr" nillable="true">
+                                      <s:complexType>
+                                        <s:sequence>
+                                          <s:element minOccurs="0" maxOccurs="1" name="Addr1" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Addr2" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Addr3" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="StateProv" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+                                        </s:sequence>
+                                        <s:attribute name="id" type="s:string" />
+                                        <s:attribute name="NameInfoRef" type="s:string" />
+                                      </s:complexType>
+                                    </s:element>
+                                    <s:element minOccurs="0" maxOccurs="unbounded" name="Communications">
+                                      <s:complexType>
+                                        <s:sequence>
+                                          <s:element minOccurs="0" maxOccurs="unbounded" name="PhoneInfo">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="1" maxOccurs="1" name="PhoneTypeCd">
+                                                  <s:simpleType>
+                                                    <s:restriction base="s:string">
+                                                      <s:enumeration value="Telephone" />
+                                                      <s:enumeration value="Cell" />
+                                                    </s:restriction>
+                                                  </s:simpleType>
+                                                </s:element>
+                                                <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="unbounded" name="EmailInfo">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="0" maxOccurs="1" name="EmailAddr" type="s:string" />
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                        </s:sequence>
+                                        <s:attribute name="id" type="s:string" />
+                                        <s:attribute name="NameInfoRef" type="s:string" />
+                                      </s:complexType>
+                                    </s:element>
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="0" maxOccurs="1" name="PersPolicy">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="1" name="CompanyProductCd" type="s:string" />
+                              <s:element minOccurs="0" maxOccurs="1" name="ContractTerm">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="1" maxOccurs="1" name="EffectiveDt" type="s:date" />
+                                    <s:element minOccurs="1" maxOccurs="1" name="ExpirationDt" type="s:date" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="com.acegroup_Destination">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="DestinationDesc" type="s:string" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="com.acegroup_InsuredPackage">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="InsuredPackageDesc" type="s:string" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="com.acegroup_Plan">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="PlanDesc" type="s:string" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="QuoteInfo">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="1" name="CompanysQuoteNumber" type="s:string" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="InsuredFullToBePaidAmt">
+                                      <s:complexType>
+                                        <s:sequence>
+                                          <s:element minOccurs="1" maxOccurs="1" name="Amt" type="s:decimal" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="CurCd">
+                                            <s:simpleType>
+                                              <s:restriction base="s:string">
+                                                <s:enumeration value="ADF" />
+                                                <s:enumeration value="ADP" />
+                                                <s:enumeration value="AED" />
+                                                <s:enumeration value="AFA" />
+                                                <s:enumeration value="ALL" />
+                                                <s:enumeration value="ANG" />
+                                                <s:enumeration value="AON" />
+                                                <s:enumeration value="ARS" />
+                                                <s:enumeration value="AUD" />
+                                                <s:enumeration value="AWG" />
+                                                <s:enumeration value="BBD" />
+                                                <s:enumeration value="BDT" />
+                                                <s:enumeration value="BGN" />
+                                                <s:enumeration value="BHD" />
+                                                <s:enumeration value="BIF" />
+                                                <s:enumeration value="BMD" />
+                                                <s:enumeration value="BND" />
+                                                <s:enumeration value="BOB" />
+                                                <s:enumeration value="BRL" />
+                                                <s:enumeration value="BSD" />
+                                                <s:enumeration value="BTN" />
+                                                <s:enumeration value="BWP" />
+                                                <s:enumeration value="BZD" />
+                                                <s:enumeration value="CAD" />
+                                                <s:enumeration value="CHF" />
+                                                <s:enumeration value="CLP" />
+                                                <s:enumeration value="CNY" />
+                                                <s:enumeration value="COP" />
+                                                <s:enumeration value="CRC" />
+                                                <s:enumeration value="CSD" />
+                                                <s:enumeration value="CUP" />
+                                                <s:enumeration value="CVE" />
+                                                <s:enumeration value="CYP" />
+                                                <s:enumeration value="CZK" />
+                                                <s:enumeration value="DJF" />
+                                                <s:enumeration value="DKK" />
+                                                <s:enumeration value="DOP" />
+                                                <s:enumeration value="DZD" />
+                                                <s:enumeration value="ECS" />
+                                                <s:enumeration value="EEK" />
+                                                <s:enumeration value="EGP" />
+                                                <s:enumeration value="ETB" />
+                                                <s:enumeration value="EUR" />
+                                                <s:enumeration value="FJD" />
+                                                <s:enumeration value="FKP" />
+                                                <s:enumeration value="GBP" />
+                                                <s:enumeration value="GHC" />
+                                                <s:enumeration value="GIP" />
+                                                <s:enumeration value="GMD" />
+                                                <s:enumeration value="GNF" />
+                                                <s:enumeration value="GTQ" />
+                                                <s:enumeration value="GYD" />
+                                                <s:enumeration value="HKD" />
+                                                <s:enumeration value="HNL" />
+                                                <s:enumeration value="HRK" />
+                                                <s:enumeration value="HTG" />
+                                                <s:enumeration value="HUF" />
+                                                <s:enumeration value="IDR" />
+                                                <s:enumeration value="ILS" />
+                                                <s:enumeration value="INR" />
+                                                <s:enumeration value="IQD" />
+                                                <s:enumeration value="IRR" />
+                                                <s:enumeration value="ISK" />
+                                                <s:enumeration value="JMD" />
+                                                <s:enumeration value="JOD" />
+                                                <s:enumeration value="JPY" />
+                                                <s:enumeration value="KES" />
+                                                <s:enumeration value="KHR" />
+                                                <s:enumeration value="KMF" />
+                                                <s:enumeration value="KRW" />
+                                                <s:enumeration value="KWD" />
+                                                <s:enumeration value="KYD" />
+                                                <s:enumeration value="KZT" />
+                                                <s:enumeration value="LAK" />
+                                                <s:enumeration value="LBP" />
+                                                <s:enumeration value="LKR" />
+                                                <s:enumeration value="LRD" />
+                                                <s:enumeration value="LSL" />
+                                                <s:enumeration value="LTL" />
+                                                <s:enumeration value="LVL" />
+                                                <s:enumeration value="LYD" />
+                                                <s:enumeration value="MAD" />
+                                                <s:enumeration value="MGA" />
+                                                <s:enumeration value="MGF" />
+                                                <s:enumeration value="MMK" />
+                                                <s:enumeration value="MNT" />
+                                                <s:enumeration value="MOP" />
+                                                <s:enumeration value="MRO" />
+                                                <s:enumeration value="MTL" />
+                                                <s:enumeration value="MUR" />
+                                                <s:enumeration value="MVR" />
+                                                <s:enumeration value="MWK" />
+                                                <s:enumeration value="MXN" />
+                                                <s:enumeration value="MYR" />
+                                                <s:enumeration value="MZM" />
+                                                <s:enumeration value="NAD" />
+                                                <s:enumeration value="NGN" />
+                                                <s:enumeration value="NIO" />
+                                                <s:enumeration value="NOK" />
+                                                <s:enumeration value="NPR" />
+                                                <s:enumeration value="NZD" />
+                                                <s:enumeration value="OMR" />
+                                                <s:enumeration value="PAB" />
+                                                <s:enumeration value="PEN" />
+                                                <s:enumeration value="PGK" />
+                                                <s:enumeration value="PHP" />
+                                                <s:enumeration value="PKR" />
+                                                <s:enumeration value="PLN" />
+                                                <s:enumeration value="PYG" />
+                                                <s:enumeration value="QAR" />
+                                                <s:enumeration value="ROL" />
+                                                <s:enumeration value="RON" />
+                                                <s:enumeration value="RUB" />
+                                                <s:enumeration value="SAR" />
+                                                <s:enumeration value="SBD" />
+                                                <s:enumeration value="SCR" />
+                                                <s:enumeration value="SDD" />
+                                                <s:enumeration value="SDP" />
+                                                <s:enumeration value="SEK" />
+                                                <s:enumeration value="SGD" />
+                                                <s:enumeration value="SHP" />
+                                                <s:enumeration value="SIT" />
+                                                <s:enumeration value="SKK" />
+                                                <s:enumeration value="SLL" />
+                                                <s:enumeration value="SOS" />
+                                                <s:enumeration value="SRD" />
+                                                <s:enumeration value="SRG" />
+                                                <s:enumeration value="STD" />
+                                                <s:enumeration value="SVC" />
+                                                <s:enumeration value="SYP" />
+                                                <s:enumeration value="SZL" />
+                                                <s:enumeration value="THB" />
+                                                <s:enumeration value="TND" />
+                                                <s:enumeration value="TOP" />
+                                                <s:enumeration value="TRL" />
+                                                <s:enumeration value="TRY" />
+                                                <s:enumeration value="TTD" />
+                                                <s:enumeration value="TWD" />
+                                                <s:enumeration value="TZS" />
+                                                <s:enumeration value="UAH" />
+                                                <s:enumeration value="UGS" />
+                                                <s:enumeration value="USD" />
+                                                <s:enumeration value="UYP" />
+                                                <s:enumeration value="VEB" />
+                                                <s:enumeration value="VND" />
+                                                <s:enumeration value="VUV" />
+                                                <s:enumeration value="WST" />
+                                                <s:enumeration value="YER" />
+                                                <s:enumeration value="YUN" />
+                                                <s:enumeration value="ZAR" />
+                                                <s:enumeration value="ZMK" />
+                                                <s:enumeration value="ZWD" />
+                                              </s:restriction>
+                                            </s:simpleType>
+                                          </s:element>
+                                        </s:sequence>
+                                      </s:complexType>
+                                    </s:element>
+                                    <s:element minOccurs="1" maxOccurs="1" name="CoverageConditionsInd" type="s:boolean" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="CoverageConditionsReason" type="s:string" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="InitialQuoteRequestDt" type="s:date" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="QuoteValidUntilDt" type="s:date" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="Coverages" type="s2:ArrayOfACORDInsuranceSvcRsPersPkgPolicyQuoteInqRsPersPolicyCoverage" />
+                              <s:element minOccurs="1" maxOccurs="1" name="PolicyStatusCd">
+                                <s:simpleType>
+                                  <s:restriction base="s:string">
+                                    <s:enumeration value="Approved" />
+                                    <s:enumeration value="Accepted" />
+                                    <s:enumeration value="Referred" />
+                                    <s:enumeration value="Declined" />
+                                    <s:enumeration value="Incomplete" />
+                                    <s:enumeration value="QuickQuoteApprovedOnly" />
+                                    <s:enumeration value="Lapsed" />
+                                    <s:enumeration value="Endorsed" />
+                                    <s:enumeration value="Renewed" />
+                                    <s:enumeration value="Cancelled" />
+                                  </s:restriction>
+                                </s:simpleType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="1" maxOccurs="1" name="com.acegroup_DataExtensions" nillable="true" type="s2:ArrayOfACORDInsuranceSvcRsPersPkgPolicyQuoteInqRsDataItem" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfACORDInsuranceSvcRsPersPkgPolicyQuoteInqRsPersPolicyCoverage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Coverage">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="CoverageCd" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="CoverageDesc" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="unbounded" name="Limit">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="FormatText" type="s:string" />
+                    </s:sequence>
+                    <s:attribute name="id" type="s:string" />
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="unbounded" name="Deductible">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="FormatText" type="s:string" />
+                    </s:sequence>
+                    <s:attribute name="id" type="s:string" />
+                  </s:complexType>
+                </s:element>
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfACORDInsuranceSvcRsPersPkgPolicyQuoteInqRsDataItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataItem" nillable="true">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+              </s:sequence>
+              <s:attribute name="key" type="s:string" />
+              <s:attribute name="type" type="s:anyURI" />
+              <s:attribute name="IdRef" type="s:string" />
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_QuoteArrayResp">
+      <s:import namespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_QuoteResp" />
+      <s:element name="ArrayOfACORD_QuoteResp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" ref="s2:ACORD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_PolicyReq">
+      <s:import namespace="http://ACE.Global.Travel.CRS.Schemas.PaymentProcess" />
+      <s:element name="ACORD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SignonRq">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="SignonPswd">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CustId">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="1" name="SPName" type="s:string" />
+                              <s:element minOccurs="0" maxOccurs="1" name="CustLoginId" type="s:string" />
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="0" maxOccurs="1" name="CustPswd">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="1" maxOccurs="1" name="EncryptionTypeCd">
+                                <s:simpleType>
+                                  <s:restriction base="s:string">
+                                    <s:enumeration value="MD5" />
+                                    <s:enumeration value="SHA1" />
+                                    <s:enumeration value="None" />
+                                  </s:restriction>
+                                </s:simpleType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="Pswd" type="s:string" />
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                  <s:element minOccurs="1" maxOccurs="1" name="ClientDt" type="s:dateTime" />
+                  <s:element minOccurs="0" maxOccurs="1" name="CustLangPref" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="ClientApp">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Org" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:decimal" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="InsuranceSvcRq">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PersPkgPolicyAddRq">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="TransactionRequestDt" type="s:dateTime" />
+                        <s:element minOccurs="0" maxOccurs="1" name="InsuredOrPrincipal">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="1" name="GeneralPartyInfo">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="unbounded" name="NameInfo">
+                                      <s:complexType>
+                                        <s:sequence>
+                                          <s:element minOccurs="0" maxOccurs="1" name="PersonName">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+                                                <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string" />
+                                                <s:element minOccurs="0" maxOccurs="1" name="TitlePrefix" type="s:string" />
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="SupplementaryNameInfo">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="1" maxOccurs="1" name="SupplementaryNameCd">
+                                                  <s:simpleType>
+                                                    <s:restriction base="s:string">
+                                                      <s:enumeration value="AKA" />
+                                                      <s:enumeration value="Alias" />
+                                                      <s:enumeration value="ATTN" />
+                                                      <s:enumeration value="Branch" />
+                                                      <s:enumeration value="DBA" />
+                                                      <s:enumeration value="Division" />
+                                                      <s:enumeration value="Maiden" />
+                                                      <s:enumeration value="OWNER" />
+                                                      <s:enumeration value="Previous" />
+                                                      <s:enumeration value="PrimaryContact" />
+                                                      <s:enumeration value="SearchName" />
+                                                      <s:enumeration value="TBA" />
+                                                    </s:restriction>
+                                                  </s:simpleType>
+                                                </s:element>
+                                                <s:element minOccurs="0" maxOccurs="1" name="SupplementaryName">
+                                                  <s:complexType>
+                                                    <s:sequence>
+                                                      <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+                                                      <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string" />
+                                                      <s:element minOccurs="0" maxOccurs="1" name="TitlePrefix" type="s:string" />
+                                                    </s:sequence>
+                                                  </s:complexType>
+                                                </s:element>
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="TitleRelationshipDesc" type="s:string" />
+                                          <s:element minOccurs="1" maxOccurs="1" name="BirthDt" type="s:date" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Gender">
+                                            <s:simpleType>
+                                              <s:restriction base="s:string">
+                                                <s:enumeration value="F" />
+                                                <s:enumeration value="M" />
+                                                <s:enumeration value="U" />
+                                              </s:restriction>
+                                            </s:simpleType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="IdNumberTypeCd">
+                                            <s:simpleType>
+                                              <s:restriction base="s:string">
+                                                <s:enumeration value="Passport" />
+                                                <s:enumeration value="IDNumber" />
+                                              </s:restriction>
+                                            </s:simpleType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="IdNumber" type="s:string" />
+                                        </s:sequence>
+                                        <s:attribute name="id" type="s:string" />
+                                      </s:complexType>
+                                    </s:element>
+                                    <s:element minOccurs="0" maxOccurs="unbounded" name="Addr" nillable="true">
+                                      <s:complexType>
+                                        <s:sequence>
+                                          <s:element minOccurs="0" maxOccurs="1" name="Addr1" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Addr2" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Addr3" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="StateProv" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+                                        </s:sequence>
+                                        <s:attribute name="id" type="s:string" />
+                                        <s:attribute name="NameInfoRef" type="s:string" />
+                                      </s:complexType>
+                                    </s:element>
+                                    <s:element minOccurs="0" maxOccurs="unbounded" name="Communications">
+                                      <s:complexType>
+                                        <s:sequence>
+                                          <s:element minOccurs="0" maxOccurs="unbounded" name="PhoneInfo">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="1" maxOccurs="1" name="PhoneTypeCd">
+                                                  <s:simpleType>
+                                                    <s:restriction base="s:string">
+                                                      <s:enumeration value="Telephone" />
+                                                      <s:enumeration value="Cell" />
+                                                    </s:restriction>
+                                                  </s:simpleType>
+                                                </s:element>
+                                                <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="unbounded" name="EmailInfo">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="0" maxOccurs="1" name="EmailAddr" type="s:string" />
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                        </s:sequence>
+                                        <s:attribute name="id" type="s:string" />
+                                        <s:attribute name="NameInfoRef" type="s:string" />
+                                      </s:complexType>
+                                    </s:element>
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="0" maxOccurs="1" name="PersPolicy">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="1" name="CompanyProductCd" type="s:string" />
+                              <s:element minOccurs="0" maxOccurs="1" name="ContractTerm">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="1" maxOccurs="1" name="EffectiveDt" type="s:date" />
+                                    <s:element minOccurs="1" maxOccurs="1" name="ExpirationDt" type="s:date" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="com.acegroup_Destination">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="DestinationDesc" type="s:string" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="com.acegroup_InsuredPackage">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="InsuredPackageDesc" type="s:string" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="com.acegroup_Plan">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="PlanDesc" type="s:string" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="1" maxOccurs="1" name="com.acegroup_DataExtensions" nillable="true" type="s4:ArrayOfACORDInsuranceSvcRqPersPkgPolicyAddRqDataItem" />
+                        <s:element minOccurs="1" maxOccurs="1" name="com.acegroup_PaymentProcess" nillable="true">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="1" ref="s5:PaymentProcess" />
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfACORDInsuranceSvcRqPersPkgPolicyAddRqDataItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataItem" nillable="true">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+              </s:sequence>
+              <s:attribute name="key" type="s:string" />
+              <s:attribute name="type" type="s:anyURI" />
+              <s:attribute name="IdRef" type="s:string" />
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ACE.Global.Travel.CRS.Schemas.PaymentProcess">
+      <s:element name="PaymentProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PaymentRequest" nillable="true">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="PaymentMode">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="CreditCard" />
+                        <s:enumeration value="Cheque" />
+                        <s:enumeration value="Cash" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:element>
+                  <s:element minOccurs="1" maxOccurs="1" name="CreditCardDetails" nillable="true">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="NameOnCard" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="CardType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="Amex" />
+                              <s:enumeration value="Diners" />
+                              <s:enumeration value="JCB" />
+                              <s:enumeration value="Master" />
+                              <s:enumeration value="Visa" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="EncryptionType">
+                          <s:simpleType>
+                            <s:restriction base="s:string">
+                              <s:enumeration value="MD5" />
+                              <s:enumeration value="SHA1" />
+                              <s:enumeration value="None" />
+                            </s:restriction>
+                          </s:simpleType>
+                        </s:element>
+                        <s:element minOccurs="0" maxOccurs="1" name="SecurityCode" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="ExpiryMonth" type="s:unsignedByte" />
+                        <s:element minOccurs="1" maxOccurs="1" name="ExpiryYear" type="s:unsignedByte" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                  <s:element minOccurs="1" maxOccurs="1" name="ChequeDetails" nillable="true">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="PayerName" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ChequeNumber" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="ChequeDate" type="s:date" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                  <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:dateTime" />
+                  <s:element minOccurs="1" maxOccurs="1" name="Currency">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="ADF" />
+                        <s:enumeration value="ADP" />
+                        <s:enumeration value="AED" />
+                        <s:enumeration value="AFA" />
+                        <s:enumeration value="ALL" />
+                        <s:enumeration value="ANG" />
+                        <s:enumeration value="AON" />
+                        <s:enumeration value="ARS" />
+                        <s:enumeration value="AUD" />
+                        <s:enumeration value="AWG" />
+                        <s:enumeration value="BBD" />
+                        <s:enumeration value="BDT" />
+                        <s:enumeration value="BGN" />
+                        <s:enumeration value="BHD" />
+                        <s:enumeration value="BIF" />
+                        <s:enumeration value="BMD" />
+                        <s:enumeration value="BND" />
+                        <s:enumeration value="BOB" />
+                        <s:enumeration value="BRL" />
+                        <s:enumeration value="BSD" />
+                        <s:enumeration value="BTN" />
+                        <s:enumeration value="BWP" />
+                        <s:enumeration value="BZD" />
+                        <s:enumeration value="CAD" />
+                        <s:enumeration value="CHF" />
+                        <s:enumeration value="CLP" />
+                        <s:enumeration value="CNY" />
+                        <s:enumeration value="COP" />
+                        <s:enumeration value="CRC" />
+                        <s:enumeration value="CSD" />
+                        <s:enumeration value="CUP" />
+                        <s:enumeration value="CVE" />
+                        <s:enumeration value="CYP" />
+                        <s:enumeration value="CZK" />
+                        <s:enumeration value="DJF" />
+                        <s:enumeration value="DKK" />
+                        <s:enumeration value="DOP" />
+                        <s:enumeration value="DZD" />
+                        <s:enumeration value="ECS" />
+                        <s:enumeration value="EEK" />
+                        <s:enumeration value="EGP" />
+                        <s:enumeration value="ETB" />
+                        <s:enumeration value="EUR" />
+                        <s:enumeration value="FJD" />
+                        <s:enumeration value="FKP" />
+                        <s:enumeration value="GBP" />
+                        <s:enumeration value="GHC" />
+                        <s:enumeration value="GIP" />
+                        <s:enumeration value="GMD" />
+                        <s:enumeration value="GNF" />
+                        <s:enumeration value="GTQ" />
+                        <s:enumeration value="GYD" />
+                        <s:enumeration value="HKD" />
+                        <s:enumeration value="HNL" />
+                        <s:enumeration value="HRK" />
+                        <s:enumeration value="HTG" />
+                        <s:enumeration value="HUF" />
+                        <s:enumeration value="IDR" />
+                        <s:enumeration value="ILS" />
+                        <s:enumeration value="INR" />
+                        <s:enumeration value="IQD" />
+                        <s:enumeration value="IRR" />
+                        <s:enumeration value="ISK" />
+                        <s:enumeration value="JMD" />
+                        <s:enumeration value="JOD" />
+                        <s:enumeration value="JPY" />
+                        <s:enumeration value="KES" />
+                        <s:enumeration value="KHR" />
+                        <s:enumeration value="KMF" />
+                        <s:enumeration value="KRW" />
+                        <s:enumeration value="KWD" />
+                        <s:enumeration value="KYD" />
+                        <s:enumeration value="KZT" />
+                        <s:enumeration value="LAK" />
+                        <s:enumeration value="LBP" />
+                        <s:enumeration value="LKR" />
+                        <s:enumeration value="LRD" />
+                        <s:enumeration value="LSL" />
+                        <s:enumeration value="LTL" />
+                        <s:enumeration value="LVL" />
+                        <s:enumeration value="LYD" />
+                        <s:enumeration value="MAD" />
+                        <s:enumeration value="MGA" />
+                        <s:enumeration value="MGF" />
+                        <s:enumeration value="MMK" />
+                        <s:enumeration value="MNT" />
+                        <s:enumeration value="MOP" />
+                        <s:enumeration value="MRO" />
+                        <s:enumeration value="MTL" />
+                        <s:enumeration value="MUR" />
+                        <s:enumeration value="MVR" />
+                        <s:enumeration value="MWK" />
+                        <s:enumeration value="MXN" />
+                        <s:enumeration value="MYR" />
+                        <s:enumeration value="MZM" />
+                        <s:enumeration value="NAD" />
+                        <s:enumeration value="NGN" />
+                        <s:enumeration value="NIO" />
+                        <s:enumeration value="NOK" />
+                        <s:enumeration value="NPR" />
+                        <s:enumeration value="NZD" />
+                        <s:enumeration value="OMR" />
+                        <s:enumeration value="PAB" />
+                        <s:enumeration value="PEN" />
+                        <s:enumeration value="PGK" />
+                        <s:enumeration value="PHP" />
+                        <s:enumeration value="PKR" />
+                        <s:enumeration value="PLN" />
+                        <s:enumeration value="PYG" />
+                        <s:enumeration value="QAR" />
+                        <s:enumeration value="ROL" />
+                        <s:enumeration value="RON" />
+                        <s:enumeration value="RUB" />
+                        <s:enumeration value="SAR" />
+                        <s:enumeration value="SBD" />
+                        <s:enumeration value="SCR" />
+                        <s:enumeration value="SDD" />
+                        <s:enumeration value="SDP" />
+                        <s:enumeration value="SEK" />
+                        <s:enumeration value="SGD" />
+                        <s:enumeration value="SHP" />
+                        <s:enumeration value="SIT" />
+                        <s:enumeration value="SKK" />
+                        <s:enumeration value="SLL" />
+                        <s:enumeration value="SOS" />
+                        <s:enumeration value="SRD" />
+                        <s:enumeration value="SRG" />
+                        <s:enumeration value="STD" />
+                        <s:enumeration value="SVC" />
+                        <s:enumeration value="SYP" />
+                        <s:enumeration value="SZL" />
+                        <s:enumeration value="THB" />
+                        <s:enumeration value="TND" />
+                        <s:enumeration value="TOP" />
+                        <s:enumeration value="TRL" />
+                        <s:enumeration value="TRY" />
+                        <s:enumeration value="TTD" />
+                        <s:enumeration value="TWD" />
+                        <s:enumeration value="TZS" />
+                        <s:enumeration value="UAH" />
+                        <s:enumeration value="UGS" />
+                        <s:enumeration value="USD" />
+                        <s:enumeration value="UYP" />
+                        <s:enumeration value="VEB" />
+                        <s:enumeration value="VND" />
+                        <s:enumeration value="VUV" />
+                        <s:enumeration value="WST" />
+                        <s:enumeration value="YER" />
+                        <s:enumeration value="YUN" />
+                        <s:enumeration value="ZAR" />
+                        <s:enumeration value="ZMK" />
+                        <s:enumeration value="ZWD" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:element>
+                  <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="PaymentResponse" nillable="true">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="ReceiptNumber" type="s:string" />
+                  <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:dateTime" />
+                  <s:element minOccurs="1" maxOccurs="1" name="Messages" nillable="true" type="s5:ArrayOfString" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_PolicyResp">
+      <s:import namespace="http://ACE.Global.Travel.CRS.Schemas.PaymentProcess" />
+      <s:element name="ACORD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SignonRs">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="1" maxOccurs="1" name="ClientDt" type="s:dateTime" />
+                  <s:element minOccurs="0" maxOccurs="1" name="CustLangPref" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="ClientApp">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Org" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:decimal" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                  <s:element minOccurs="1" maxOccurs="1" name="ServerDt" type="s:dateTime" />
+                  <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="InsuranceSvcRs">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PersPkgPolicyAddRs">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="TransactionResponseDt" type="s:dateTime" />
+                        <s:element minOccurs="0" maxOccurs="1" name="MsgStatus">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="1" maxOccurs="1" name="MsgStatusCd">
+                                <s:simpleType>
+                                  <s:restriction base="s:string">
+                                    <s:enumeration value="Error" />
+                                    <s:enumeration value="Rejected" />
+                                    <s:enumeration value="ResponsePending" />
+                                    <s:enumeration value="Success" />
+                                    <s:enumeration value="SuccessWithChanges" />
+                                    <s:enumeration value="SuccessWithInfo" />
+                                  </s:restriction>
+                                </s:simpleType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="MsgStatusDesc" type="s:string" />
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="0" maxOccurs="1" name="InsuredOrPrincipal">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="1" name="GeneralPartyInfo">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="unbounded" name="NameInfo">
+                                      <s:complexType>
+                                        <s:sequence>
+                                          <s:element minOccurs="0" maxOccurs="1" name="PersonName">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+                                                <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string" />
+                                                <s:element minOccurs="0" maxOccurs="1" name="TitlePrefix" type="s:string" />
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="SupplementaryNameInfo">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="1" maxOccurs="1" name="SupplementaryNameCd">
+                                                  <s:simpleType>
+                                                    <s:restriction base="s:string">
+                                                      <s:enumeration value="AKA" />
+                                                      <s:enumeration value="Alias" />
+                                                      <s:enumeration value="ATTN" />
+                                                      <s:enumeration value="Branch" />
+                                                      <s:enumeration value="DBA" />
+                                                      <s:enumeration value="Division" />
+                                                      <s:enumeration value="Maiden" />
+                                                      <s:enumeration value="OWNER" />
+                                                      <s:enumeration value="Previous" />
+                                                      <s:enumeration value="PrimaryContact" />
+                                                      <s:enumeration value="SearchName" />
+                                                      <s:enumeration value="TBA" />
+                                                    </s:restriction>
+                                                  </s:simpleType>
+                                                </s:element>
+                                                <s:element minOccurs="0" maxOccurs="1" name="SupplementaryName">
+                                                  <s:complexType>
+                                                    <s:sequence>
+                                                      <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+                                                      <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string" />
+                                                      <s:element minOccurs="0" maxOccurs="1" name="TitlePrefix" type="s:string" />
+                                                    </s:sequence>
+                                                  </s:complexType>
+                                                </s:element>
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="TitleRelationshipDesc" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="BirthDt" type="s:date" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Gender">
+                                            <s:simpleType>
+                                              <s:restriction base="s:string">
+                                                <s:enumeration value="F" />
+                                                <s:enumeration value="M" />
+                                                <s:enumeration value="U" />
+                                              </s:restriction>
+                                            </s:simpleType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="IdNumberTypeCd">
+                                            <s:simpleType>
+                                              <s:restriction base="s:string">
+                                                <s:enumeration value="Passport" />
+                                                <s:enumeration value="IDNumber" />
+                                              </s:restriction>
+                                            </s:simpleType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="1" name="IdNumber" type="s:string" />
+                                        </s:sequence>
+                                        <s:attribute name="id" type="s:string" />
+                                      </s:complexType>
+                                    </s:element>
+                                    <s:element minOccurs="0" maxOccurs="unbounded" name="Addr" nillable="true">
+                                      <s:complexType>
+                                        <s:sequence>
+                                          <s:element minOccurs="0" maxOccurs="1" name="Addr1" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Addr2" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Addr3" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="StateProv" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+                                          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+                                        </s:sequence>
+                                        <s:attribute name="id" type="s:string" />
+                                        <s:attribute name="NameInfoRef" type="s:string" />
+                                      </s:complexType>
+                                    </s:element>
+                                    <s:element minOccurs="0" maxOccurs="unbounded" name="Communications">
+                                      <s:complexType>
+                                        <s:sequence>
+                                          <s:element minOccurs="0" maxOccurs="unbounded" name="PhoneInfo">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="1" maxOccurs="1" name="PhoneTypeCd">
+                                                  <s:simpleType>
+                                                    <s:restriction base="s:string">
+                                                      <s:enumeration value="Telephone" />
+                                                      <s:enumeration value="Cell" />
+                                                    </s:restriction>
+                                                  </s:simpleType>
+                                                </s:element>
+                                                <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element minOccurs="0" maxOccurs="unbounded" name="EmailInfo">
+                                            <s:complexType>
+                                              <s:sequence>
+                                                <s:element minOccurs="0" maxOccurs="1" name="EmailAddr" type="s:string" />
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                        </s:sequence>
+                                        <s:attribute name="id" type="s:string" />
+                                        <s:attribute name="NameInfoRef" type="s:string" />
+                                      </s:complexType>
+                                    </s:element>
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="0" maxOccurs="1" name="PersPolicy">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="1" name="CompanyProductCd" type="s:string" />
+                              <s:element minOccurs="0" maxOccurs="1" name="ContractTerm">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="1" maxOccurs="1" name="EffectiveDt" type="s:date" />
+                                    <s:element minOccurs="1" maxOccurs="1" name="ExpirationDt" type="s:date" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="EndorsementEffectiveDt" type="s:date" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="CancellationEffectiveDt" type="s:date" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="com.acegroup_Destination">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="DestinationDesc" type="s:string" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="com.acegroup_InsuredPackage">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="InsuredPackageDesc" type="s:string" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="com.acegroup_Plan">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="PlanDesc" type="s:string" />
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="Coverages" type="s6:ArrayOfACORDInsuranceSvcRsPersPkgPolicyAddRsPersPolicyCoverage" />
+                              <s:element minOccurs="0" maxOccurs="1" name="CurrentTermAmt">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element minOccurs="1" maxOccurs="1" name="Amt" type="s:decimal" />
+                                    <s:element minOccurs="0" maxOccurs="1" name="CurCd">
+                                      <s:simpleType>
+                                        <s:restriction base="s:string">
+                                          <s:enumeration value="ADF" />
+                                          <s:enumeration value="ADP" />
+                                          <s:enumeration value="AED" />
+                                          <s:enumeration value="AFA" />
+                                          <s:enumeration value="ALL" />
+                                          <s:enumeration value="ANG" />
+                                          <s:enumeration value="AON" />
+                                          <s:enumeration value="ARS" />
+                                          <s:enumeration value="AUD" />
+                                          <s:enumeration value="AWG" />
+                                          <s:enumeration value="BBD" />
+                                          <s:enumeration value="BDT" />
+                                          <s:enumeration value="BGN" />
+                                          <s:enumeration value="BHD" />
+                                          <s:enumeration value="BIF" />
+                                          <s:enumeration value="BMD" />
+                                          <s:enumeration value="BND" />
+                                          <s:enumeration value="BOB" />
+                                          <s:enumeration value="BRL" />
+                                          <s:enumeration value="BSD" />
+                                          <s:enumeration value="BTN" />
+                                          <s:enumeration value="BWP" />
+                                          <s:enumeration value="BZD" />
+                                          <s:enumeration value="CAD" />
+                                          <s:enumeration value="CHF" />
+                                          <s:enumeration value="CLP" />
+                                          <s:enumeration value="CNY" />
+                                          <s:enumeration value="COP" />
+                                          <s:enumeration value="CRC" />
+                                          <s:enumeration value="CSD" />
+                                          <s:enumeration value="CUP" />
+                                          <s:enumeration value="CVE" />
+                                          <s:enumeration value="CYP" />
+                                          <s:enumeration value="CZK" />
+                                          <s:enumeration value="DJF" />
+                                          <s:enumeration value="DKK" />
+                                          <s:enumeration value="DOP" />
+                                          <s:enumeration value="DZD" />
+                                          <s:enumeration value="ECS" />
+                                          <s:enumeration value="EEK" />
+                                          <s:enumeration value="EGP" />
+                                          <s:enumeration value="ETB" />
+                                          <s:enumeration value="EUR" />
+                                          <s:enumeration value="FJD" />
+                                          <s:enumeration value="FKP" />
+                                          <s:enumeration value="GBP" />
+                                          <s:enumeration value="GHC" />
+                                          <s:enumeration value="GIP" />
+                                          <s:enumeration value="GMD" />
+                                          <s:enumeration value="GNF" />
+                                          <s:enumeration value="GTQ" />
+                                          <s:enumeration value="GYD" />
+                                          <s:enumeration value="HKD" />
+                                          <s:enumeration value="HNL" />
+                                          <s:enumeration value="HRK" />
+                                          <s:enumeration value="HTG" />
+                                          <s:enumeration value="HUF" />
+                                          <s:enumeration value="IDR" />
+                                          <s:enumeration value="ILS" />
+                                          <s:enumeration value="INR" />
+                                          <s:enumeration value="IQD" />
+                                          <s:enumeration value="IRR" />
+                                          <s:enumeration value="ISK" />
+                                          <s:enumeration value="JMD" />
+                                          <s:enumeration value="JOD" />
+                                          <s:enumeration value="JPY" />
+                                          <s:enumeration value="KES" />
+                                          <s:enumeration value="KHR" />
+                                          <s:enumeration value="KMF" />
+                                          <s:enumeration value="KRW" />
+                                          <s:enumeration value="KWD" />
+                                          <s:enumeration value="KYD" />
+                                          <s:enumeration value="KZT" />
+                                          <s:enumeration value="LAK" />
+                                          <s:enumeration value="LBP" />
+                                          <s:enumeration value="LKR" />
+                                          <s:enumeration value="LRD" />
+                                          <s:enumeration value="LSL" />
+                                          <s:enumeration value="LTL" />
+                                          <s:enumeration value="LVL" />
+                                          <s:enumeration value="LYD" />
+                                          <s:enumeration value="MAD" />
+                                          <s:enumeration value="MGA" />
+                                          <s:enumeration value="MGF" />
+                                          <s:enumeration value="MMK" />
+                                          <s:enumeration value="MNT" />
+                                          <s:enumeration value="MOP" />
+                                          <s:enumeration value="MRO" />
+                                          <s:enumeration value="MTL" />
+                                          <s:enumeration value="MUR" />
+                                          <s:enumeration value="MVR" />
+                                          <s:enumeration value="MWK" />
+                                          <s:enumeration value="MXN" />
+                                          <s:enumeration value="MYR" />
+                                          <s:enumeration value="MZM" />
+                                          <s:enumeration value="NAD" />
+                                          <s:enumeration value="NGN" />
+                                          <s:enumeration value="NIO" />
+                                          <s:enumeration value="NOK" />
+                                          <s:enumeration value="NPR" />
+                                          <s:enumeration value="NZD" />
+                                          <s:enumeration value="OMR" />
+                                          <s:enumeration value="PAB" />
+                                          <s:enumeration value="PEN" />
+                                          <s:enumeration value="PGK" />
+                                          <s:enumeration value="PHP" />
+                                          <s:enumeration value="PKR" />
+                                          <s:enumeration value="PLN" />
+                                          <s:enumeration value="PYG" />
+                                          <s:enumeration value="QAR" />
+                                          <s:enumeration value="ROL" />
+                                          <s:enumeration value="RON" />
+                                          <s:enumeration value="RUB" />
+                                          <s:enumeration value="SAR" />
+                                          <s:enumeration value="SBD" />
+                                          <s:enumeration value="SCR" />
+                                          <s:enumeration value="SDD" />
+                                          <s:enumeration value="SDP" />
+                                          <s:enumeration value="SEK" />
+                                          <s:enumeration value="SGD" />
+                                          <s:enumeration value="SHP" />
+                                          <s:enumeration value="SIT" />
+                                          <s:enumeration value="SKK" />
+                                          <s:enumeration value="SLL" />
+                                          <s:enumeration value="SOS" />
+                                          <s:enumeration value="SRD" />
+                                          <s:enumeration value="SRG" />
+                                          <s:enumeration value="STD" />
+                                          <s:enumeration value="SVC" />
+                                          <s:enumeration value="SYP" />
+                                          <s:enumeration value="SZL" />
+                                          <s:enumeration value="THB" />
+                                          <s:enumeration value="TND" />
+                                          <s:enumeration value="TOP" />
+                                          <s:enumeration value="TRL" />
+                                          <s:enumeration value="TRY" />
+                                          <s:enumeration value="TTD" />
+                                          <s:enumeration value="TWD" />
+                                          <s:enumeration value="TZS" />
+                                          <s:enumeration value="UAH" />
+                                          <s:enumeration value="UGS" />
+                                          <s:enumeration value="USD" />
+                                          <s:enumeration value="UYP" />
+                                          <s:enumeration value="VEB" />
+                                          <s:enumeration value="VND" />
+                                          <s:enumeration value="VUV" />
+                                          <s:enumeration value="WST" />
+                                          <s:enumeration value="YER" />
+                                          <s:enumeration value="YUN" />
+                                          <s:enumeration value="ZAR" />
+                                          <s:enumeration value="ZMK" />
+                                          <s:enumeration value="ZWD" />
+                                        </s:restriction>
+                                      </s:simpleType>
+                                    </s:element>
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="PolicyNumber" type="s:string" />
+                              <s:element minOccurs="1" maxOccurs="1" name="PolicyStatusCd">
+                                <s:simpleType>
+                                  <s:restriction base="s:string">
+                                    <s:enumeration value="Approved" />
+                                    <s:enumeration value="Accepted" />
+                                    <s:enumeration value="Referred" />
+                                    <s:enumeration value="Declined" />
+                                    <s:enumeration value="Incomplete" />
+                                    <s:enumeration value="QuickQuoteApprovedOnly" />
+                                    <s:enumeration value="Lapsed" />
+                                    <s:enumeration value="Endorsed" />
+                                    <s:enumeration value="Renewed" />
+                                    <s:enumeration value="Cancelled" />
+                                  </s:restriction>
+                                </s:simpleType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="EndorsementReason" type="s:string" />
+                              <s:element minOccurs="0" maxOccurs="1" name="CancellationReason" type="s:string" />
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="1" maxOccurs="1" name="com.acegroup_DataExtensions" nillable="true" type="s6:ArrayOfACORDInsuranceSvcRsPersPkgPolicyAddRsDataItem" />
+                        <s:element minOccurs="1" maxOccurs="1" name="com.acegroup_PaymentProcess" nillable="true">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="1" ref="s5:PaymentProcess" />
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfACORDInsuranceSvcRsPersPkgPolicyAddRsPersPolicyCoverage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Coverage">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="CoverageCd" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="CoverageDesc" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="unbounded" name="Limit">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="FormatText" type="s:string" />
+                    </s:sequence>
+                    <s:attribute name="id" type="s:string" />
+                  </s:complexType>
+                </s:element>
+                <s:element minOccurs="0" maxOccurs="unbounded" name="Deductible">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element minOccurs="0" maxOccurs="1" name="FormatText" type="s:string" />
+                    </s:sequence>
+                    <s:attribute name="id" type="s:string" />
+                  </s:complexType>
+                </s:element>
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfACORDInsuranceSvcRsPersPkgPolicyAddRsDataItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataItem" nillable="true">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+              </s:sequence>
+              <s:attribute name="key" type="s:string" />
+              <s:attribute name="type" type="s:anyURI" />
+              <s:attribute name="IdRef" type="s:string" />
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_PolicyDetailsReq">
+      <s:element name="ACORD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SignonRq">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="SignonPswd">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CustId">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="1" name="SPName" type="s:string" />
+                              <s:element minOccurs="0" maxOccurs="1" name="CustLoginId" type="s:string" />
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="0" maxOccurs="1" name="CustPswd">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="1" maxOccurs="1" name="EncryptionTypeCd">
+                                <s:simpleType>
+                                  <s:restriction base="s:string">
+                                    <s:enumeration value="MD5" />
+                                    <s:enumeration value="SHA1" />
+                                    <s:enumeration value="None" />
+                                  </s:restriction>
+                                </s:simpleType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="Pswd" type="s:string" />
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                  <s:element minOccurs="1" maxOccurs="1" name="ClientDt" type="s:dateTime" />
+                  <s:element minOccurs="0" maxOccurs="1" name="CustLangPref" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="ClientApp">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Org" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:decimal" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="InsuranceSvcRq">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PolicyInqRq">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="RqUID" type="s:string" />
+                        <s:element minOccurs="1" maxOccurs="1" name="TransactionRequestDt" type="s:dateTime" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CompanyProductCd" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ActionType" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="PolicyNumber" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CancelSvcRq">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="1" maxOccurs="1" name="CancelTypeCd">
+                                <s:simpleType>
+                                  <s:restriction base="s:string">
+                                    <s:enumeration value="FE" />
+                                    <s:enumeration value="FL" />
+                                    <s:enumeration value="PR" />
+                                    <s:enumeration value="SR" />
+                                  </s:restriction>
+                                </s:simpleType>
+                              </s:element>
+                              <s:element minOccurs="0" maxOccurs="1" name="CancellationReason" type="s:string" />
+                              <s:element minOccurs="0" maxOccurs="1" name="CancellationEffectiveDt" type="s:date" />
+                              <s:element minOccurs="0" maxOccurs="1" name="CancellationNotificationDt" type="s:date" />
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="1" maxOccurs="1" name="com.acegroup_DataExtensions" nillable="true" type="s7:ArrayOfACORDInsuranceSvcRqPolicyInqRqDataItem" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfACORDInsuranceSvcRqPolicyInqRqDataItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataItem" nillable="true">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+              </s:sequence>
+              <s:attribute name="key" type="s:string" />
+              <s:attribute name="type" type="s:anyURI" />
+              <s:attribute name="IdRef" type="s:string" />
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_PolicyArrayResp">
+      <s:import namespace="http://ACE.Global.Travel.CRS.Schemas.ACORD_PolicyResp" />
+      <s:element name="ArrayOfACORD_PolicyResp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" ref="s6:ACORD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetTravelQuoteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTravelQuote" />
+  </wsdl:message>
+  <wsdl:message name="GetTravelQuoteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTravelQuoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTravelQuoteArraySoapIn">
+    <wsdl:part name="parameters" element="tns:GetTravelQuoteArray" />
+  </wsdl:message>
+  <wsdl:message name="GetTravelQuoteArraySoapOut">
+    <wsdl:part name="parameters" element="tns:GetTravelQuoteArrayResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTravelPolicySoapIn">
+    <wsdl:part name="parameters" element="tns:GetTravelPolicy" />
+  </wsdl:message>
+  <wsdl:message name="GetTravelPolicySoapOut">
+    <wsdl:part name="parameters" element="tns:GetTravelPolicyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTravelPolicyDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTravelPolicyDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetTravelPolicyDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTravelPolicyDetailsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ACORDServiceSoap">
+    <wsdl:operation name="GetTravelQuote">
+      <wsdl:input message="tns:GetTravelQuoteSoapIn" />
+      <wsdl:output message="tns:GetTravelQuoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelQuoteArray">
+      <wsdl:input message="tns:GetTravelQuoteArraySoapIn" />
+      <wsdl:output message="tns:GetTravelQuoteArraySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelPolicy">
+      <wsdl:input message="tns:GetTravelPolicySoapIn" />
+      <wsdl:output message="tns:GetTravelPolicySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelPolicyDetails">
+      <wsdl:input message="tns:GetTravelPolicyDetailsSoapIn" />
+      <wsdl:output message="tns:GetTravelPolicyDetailsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ACORDServiceSoap" type="tns:ACORDServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTravelQuote">
+      <soap:operation soapAction="http://ACE.Global.Travel.CRS.Schemas.ACORD.WS/ACORDService/GetTravelQuote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelQuoteArray">
+      <soap:operation soapAction="http://ACE.Global.Travel.CRS.Schemas.ACORD.WS/ACORDService/GetTravelQuoteArray" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelPolicy">
+      <soap:operation soapAction="http://ACE.Global.Travel.CRS.Schemas.ACORD.WS/ACORDService/GetTravelPolicy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelPolicyDetails">
+      <soap:operation soapAction="http://ACE.Global.Travel.CRS.Schemas.ACORD.WS/ACORDService/GetTravelPolicyDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ACORDServiceSoap12" type="tns:ACORDServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTravelQuote">
+      <soap12:operation soapAction="http://ACE.Global.Travel.CRS.Schemas.ACORD.WS/ACORDService/GetTravelQuote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelQuoteArray">
+      <soap12:operation soapAction="http://ACE.Global.Travel.CRS.Schemas.ACORD.WS/ACORDService/GetTravelQuoteArray" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelPolicy">
+      <soap12:operation soapAction="http://ACE.Global.Travel.CRS.Schemas.ACORD.WS/ACORDService/GetTravelPolicy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelPolicyDetails">
+      <soap12:operation soapAction="http://ACE.Global.Travel.CRS.Schemas.ACORD.WS/ACORDService/GetTravelPolicyDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ACORDService">
+    <wsdl:port name="ACORDServiceSoap" binding="tns:ACORDServiceSoap">
+      <soap:address location="http://tsuat.aceinsurance.com.au/CRS_ACORD_WS/ACORDService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ACORDServiceSoap12" binding="tns:ACORDServiceSoap12">
+      <soap12:address location="http://tsuat.aceinsurance.com.au/CRS_ACORD_WS/ACORDService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

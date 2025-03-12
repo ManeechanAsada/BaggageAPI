@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{98F488FE-1566-4873-A5F0-8D86ED927838}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>tikSystem.Web.Library</RootNamespace>
+    <AssemblyName>tikSystem.Web.Library</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DebugSymbols>false</DebugSymbols>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Booking\clsAPIMessageResult.cs" />
+    <Compile Include="Booking\clsAPIMessageResults.cs" />
+    <Compile Include="Booking\clsAPIPassengerUpdateRequest.cs" />
+    <Compile Include="Booking\clsAPIPassengerUpdateRequests.cs" />
+    <Compile Include="Booking\clsAPISeatMap.cs" />
+    <Compile Include="Booking\clsAPISeatMaps.cs" />
+    <Compile Include="Booking\clsAvailabilities.cs" />
+    <Compile Include="Booking\clsAvailability.cs" />
+    <Compile Include="Booking\clsAccountBalance.cs" />
+    <Compile Include="Booking\clsAccountBalances.cs" />
+    <Compile Include="Booking\clsAgencyAccount.cs" />
+    <Compile Include="Booking\clsAgencyAccounts.cs" />
+    <Compile Include="Booking\clsAgent.cs" />
+    <Compile Include="Booking\clsAgents.cs" />
+    <Compile Include="Booking\clsAllocation.cs" />
+    <Compile Include="Booking\clsAllocations.cs" />
+    <Compile Include="Booking\clsAPIError.cs" />
+    <Compile Include="Booking\clsAPIErrors.cs" />
+    <Compile Include="Booking\clsAPIFlightSegment.cs" />
+    <Compile Include="Booking\clsAPIFlightSegments.cs" />
+    <Compile Include="Booking\clsAPIPassengerFee.cs" />
+    <Compile Include="Booking\clsAPIPassengerFees.cs" />
+    <Compile Include="Booking\clsAPIPassengerMapping.cs" />
+    <Compile Include="Booking\clsAPIPassengerMappings.cs" />
+    <Compile Include="Booking\clsAPIPassengerService.cs" />
+    <Compile Include="Booking\clsAPIPassengerServices.cs" />
+    <Compile Include="Booking\clsAPIResult.cs" />
+    <Compile Include="Booking\clsAPIRouteConfig.cs" />
+    <Compile Include="Booking\clsAPIRouteConfigs.cs" />
+    <Compile Include="Booking\clsBoardingClass.cs" />
+    <Compile Include="Booking\clsBoardingClasses.cs" />
+    <Compile Include="Booking\clsBooking.cs" />
+    <Compile Include="Booking\clsBookingClass.cs" />
+    <Compile Include="Booking\clsBookingClasses.cs" />
+    <Compile Include="Booking\clsCheckinPassenger.cs" />
+    <Compile Include="Booking\clsCheckInPassengers.cs" />
+    <Compile Include="Booking\clsClient.cs" />
+    <Compile Include="Booking\clsClientProfile.cs" />
+    <Compile Include="Booking\clsClientProfilePassenger.cs" />
+    <Compile Include="Booking\clsClients.cs" />
+    <Compile Include="Booking\clsCountries.cs" />
+    <Compile Include="Booking\clsCountry.cs" />
+    <Compile Include="Booking\clsCurrencies.cs" />
+    <Compile Include="Booking\clsCurrency.cs" />
+    <Compile Include="Booking\clsDocument.cs" />
+    <Compile Include="Booking\clsDocuments.cs" />
+    <Compile Include="Booking\clsFee.cs" />
+    <Compile Include="Booking\clsFees.cs" />
+    <Compile Include="Booking\clsFlight.cs" />
+    <Compile Include="Booking\clsFlights.cs" />
+    <Compile Include="Booking\clsFlightSegment.cs" />
+    <Compile Include="Booking\clsFormOfPaymentSubType.cs" />
+    <Compile Include="Booking\clsFormOfPaymentSubTypes.cs" />
+    <Compile Include="Booking\clsHeader.cs" />
+    <Compile Include="Booking\clsItinerary.cs" />
+    <Compile Include="Booking\clsLanguage.cs" />
+    <Compile Include="Booking\clsLanguages.cs" />
+    <Compile Include="Booking\clsLibrary.cs" />
+    <Compile Include="Booking\clsMailManagement.cs" />
+    <Compile Include="Booking\clsMapping.cs" />
+    <Compile Include="Booking\clsMappings.cs" />
+    <Compile Include="Booking\clsMAVariable.cs" />
+    <Compile Include="Booking\clsPassenger.cs" />
+    <Compile Include="Booking\clsPassengerManifest.cs" />
+    <Compile Include="Booking\clsPassengers.cs" />
+    <Compile Include="Booking\clsPassengersManifest.cs" />
+    <Compile Include="Booking\clsPayment.cs" />
+    <Compile Include="Booking\clsPayments.cs" />
+    <Compile Include="Booking\clsPeople.cs" />
+    <Compile Include="Booking\clsQuote.cs" />
+    <Compile Include="Booking\clsQuotes.cs" />
+    <Compile Include="Booking\clsRemark.cs" />
+    <Compile Include="Booking\clsRemarkQueue.cs" />
+    <Compile Include="Booking\clsRemarks.cs" />
+    <Compile Include="Booking\clsRemarksQueue.cs" />
+    <Compile Include="Booking\clsReports.cs" />
+    <Compile Include="Booking\clsRoute.cs" />
+    <Compile Include="Booking\clsRoutes.cs" />
+    <Compile Include="Booking\clsLibraryBase.cs" />
+    <Compile Include="Booking\clsSeatRequest.cs" />
+    <Compile Include="Booking\clsSeatRequests.cs" />
+    <Compile Include="Booking\clsService.cs" />
+    <Compile Include="Booking\clsServices.cs" />
+    <Compile Include="Booking\clsTax.cs" />
+    <Compile Include="Booking\clsTaxes.cs" />
+    <Compile Include="Booking\clsTitle.cs" />
+    <Compile Include="Booking\clsTitles.cs" />
+    <Compile Include="Booking\clsUser.cs" />
+    <Compile Include="Booking\clsUsers.cs" />
+    <Compile Include="Booking\clsVoucher.cs" />
+    <Compile Include="Booking\clsVouchers.cs" />
+    <Compile Include="Booking\Insurance\ACEQuotePassenger.cs" />
+    <Compile Include="Booking\Insurance\ACEQuotePassengers.cs" />
+    <Compile Include="Booking\Insurance\clsAceInsurance.cs" />
+    <Compile Include="Booking\Insurance\clsInsurance.cs" />
+    <Compile Include="Booking\Insurance\clsInsurances.cs" />
+    <Compile Include="Booking\Insurance\IInsurance.cs" />
+    <Compile Include="Booking\clsVoucherTemplate.cs" />
+    <Compile Include="Booking\clsVoucherTemplates.cs" />
+    <Compile Include="clsAgentService.cs" />
+    <Compile Include="Booking\clsClientProfilePassengers.cs" />
+    <Compile Include="clsServiceClient.cs" />
+    <Compile Include="clstikAeroWebService.cs" />
+    <Compile Include="clsWebService.cs" />
+    <Compile Include="IClientCore.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\AceInsurance\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\agentservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\FlifoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\MultiLanguage\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\RemWSDL\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SSRInventoryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\tikAeroWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AceInsurance\ACORD1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AceInsurance\ACORD3.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AceInsurance\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\FlifoService\FlifoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\FlifoService\FlifoService.wsdl" />
+    <None Include="Web References\FlifoService\FlightsResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\FlifoService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\FlifoService\ScheduleResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\RemWSDL\OutParamBarCode.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\RemWSDL\OutParamCashOutConsequence.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\RemWSDL\OutParamCashOutRequest.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\RemWSDL\OutParamKeizokukakinRequest.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\RemWSDL\OutParamNyukin.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\RemWSDL\OutParamSyuno.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\RemWSDL\OutParamSyunoBarCode.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\RemWSDL\OutParamSyunoETicket.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\RemWSDL\OutParamSyunoPlusBarCode.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\RemWSDL\OutParamTomeoki.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\RemWSDL\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\RemWSDL\Yoyaku.wsdl" />
+    <None Include="Web References\SSRInventoryService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SSRInventoryService\SSRInventoryResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SSRInventoryService\SSRInventoryService.wsdl" />
+    <None Include="Web References\tikAeroWebService\Agent.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\tikAeroWebService\BaggageFeeResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\tikAeroWebService\Client.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\tikAeroWebService\Country.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\tikAeroWebService\Currency.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\tikAeroWebService\Document.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\tikAeroWebService\GetFeeReponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\tikAeroWebService\Language.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\tikAeroWebService\Route.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\tikAeroWebService\SegmentFeeResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\tikAeroWebService\Service.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\tikAeroWebService\tikAeroWebService.wsdl" />
+    <None Include="Web References\tikAeroWebService\Title.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\tikAeroWebService\User2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\tikAeroWebService\WsWrapper.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\agentservice\AgentService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost/SSRInventoryService/SSRInventoryService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SSRInventoryService\</RelPath>
+      <UpdateFromURL>http://localhost/SSRInventoryService/SSRInventoryService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>tikSystem_Web_Library_SSRInventoryService_SSRInventoryService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://rem.kessai.info/KessaiTest/Yoyaku.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\RemWSDL\</RelPath>
+      <UpdateFromURL>http://rem.kessai.info/KessaiTest/Yoyaku.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>tikSystem_Web_Library_RemWSDL_Yoyaku</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://www.flywithstyle.com/flifoservice_new/FlifoService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\FlifoService\</RelPath>
+      <UpdateFromURL>http://www.flywithstyle.com/flifoservice_new/FlifoService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>tikSystem_Web_Library_FlifoService_FlifoService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://www.flywithstyle.com/newb2cservice/AgentService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AceInsurance\</RelPath>
+      <UpdateFromURL>http://www.flywithstyle.com/newb2cservice/AgentService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>tikSystem_Web_Library_AceInsurance_ACORDService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:4203/AgentService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\agentservice\</RelPath>
+      <UpdateFromURL>http://localhost:4203/AgentService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>tikSystem_Web_Library_agentservice_TikAero_x0020_XML_x0020_web_x0020_service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:12166/tikAeroWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\tikAeroWebService\</RelPath>
+      <UpdateFromURL>http://localhost:12166/tikAeroWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>tikSystem_Web_Library_tikAeroWebService_tikAeroService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://www.flywithstyle.com/TPC/WEMS/Language.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\MultiLanguage\</RelPath>
+      <UpdateFromURL>http://www.flywithstyle.com/TPC/WEMS/Language.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>tikSystem_Web_Library_MultiLanguage_ServiceEngine</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\agentservice\AgentService.disco" />
+    <None Include="Web References\agentservice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\MultiLanguage\Language.disco" />
+    <None Include="Web References\MultiLanguage\Language.wsdl" />
+    <None Include="Web References\MultiLanguage\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EncryptKey\tikAeroService.kez" />
+    <None Include="EncryptKey\tikAeroService.pke" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\tikAeroWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\tikAeroWebService\tikAeroWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\RemWSDL\Yoyaku.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\FlifoService\FlifoService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\SSRInventoryService\SSRInventoryService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

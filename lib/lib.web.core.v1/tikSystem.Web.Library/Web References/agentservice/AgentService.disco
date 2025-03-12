@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost:4203/AgentService.asmx?wsdl" docRef="http://localhost:4203/AgentService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost:4203/AgentService.asmx" xmlns:q1="http://www.tiksystems.com/TikAeroWebService" binding="q1:TikAero_x005F_x0020_XML_x005F_x0020_web_x005F_x0020_serviceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost:4203/AgentService.asmx" xmlns:q2="http://www.tiksystems.com/TikAeroWebService" binding="q2:TikAero_x005F_x0020_XML_x005F_x0020_web_x005F_x0020_serviceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

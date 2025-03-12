@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="tikSystem.Web.Library.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="tikSystem_Web_Library_MultiLanguage_ServiceEngine" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.flywithstyle.com/TPC/WEMS/Language.asmx</Value>
+    </Setting>
+    <Setting Name="tikSystem_Web_Library_AceInsurance_ACORDService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://tsuat.aceinsurance.com.au/CRS_ACORD_WS/ACORDService.asmx</Value>
+    </Setting>
+    <Setting Name="tikSystem_Web_Library_RemWSDL_Yoyaku" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://rem.kessai.info/KessaiTest/Yoyaku.asmx</Value>
+    </Setting>
+    <Setting Name="tikSystem_Web_Library_FlifoService_FlifoService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.flywithstyle.com/flifoservice_new/FlifoService.asmx</Value>
+    </Setting>
+    <Setting Name="tikSystem_Web_Library_tikAeroWebService_tikAeroService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:12166/tikAeroWebService.asmx</Value>
+    </Setting>
+    <Setting Name="tikSystem_Web_Library_agentservice_TikAero_x0020_XML_x0020_web_x0020_service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:4203/AgentService.asmx</Value>
+    </Setting>
+    <Setting Name="tikSystem_Web_Library_SSRInventoryService_SSRInventoryService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/SSRInventoryService/SSRInventoryService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

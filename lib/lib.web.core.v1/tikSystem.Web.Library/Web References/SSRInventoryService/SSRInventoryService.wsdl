@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetSSRInventory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ssrInventoryRequest" type="tns:SSRInventoryRequest" />
+            <s:element minOccurs="0" maxOccurs="1" name="userCredential" type="tns:UserCredential" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SSRInventoryRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FlightId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserCredential">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AgencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSSRInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSSRInventoryResult" type="tns:SSRInventoryResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SSRInventoryResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SSRInventories" type="tns:ArrayOfSSRInventory" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSSRInventory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SSRInventory" nillable="true" type="tns:SSRInventory" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SSRInventory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Special_Service_Inventory_FlightId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Boarding_Class_Rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Special_Service_Group_Inventory_Rcd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Special_Service_Rcd" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bookable_Capacity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Request_Capacity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Group_Booked_Count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Booked_Count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Group_Requested_Count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Requested_Count" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status_Code" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSSRInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSSRInventory" />
+  </wsdl:message>
+  <wsdl:message name="GetSSRInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSSRInventoryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SSRInventoryServiceSoap">
+    <wsdl:operation name="GetSSRInventory">
+      <wsdl:input message="tns:GetSSRInventorySoapIn" />
+      <wsdl:output message="tns:GetSSRInventorySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SSRInventoryServiceSoap" type="tns:SSRInventoryServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSSRInventory">
+      <soap:operation soapAction="http://tempuri.org/GetSSRInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SSRInventoryServiceSoap12" type="tns:SSRInventoryServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSSRInventory">
+      <soap12:operation soapAction="http://tempuri.org/GetSSRInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SSRInventoryService">
+    <wsdl:port name="SSRInventoryServiceSoap" binding="tns:SSRInventoryServiceSoap">
+      <soap:address location="http://localhost/SSRInventoryService/SSRInventoryService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SSRInventoryServiceSoap12" binding="tns:SSRInventoryServiceSoap12">
+      <soap12:address location="http://localhost/SSRInventoryService/SSRInventoryService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

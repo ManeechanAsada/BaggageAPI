@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://www.w3.org/2001/XMLSchema" />
+      <s:element name="SaveLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CultureName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveLanguageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="CultureName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateLanguageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CultureName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteLanguageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveLanguageAndConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CultureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="imageUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="showflag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveLanguageAndConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveLanguageAndConfigResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchLanguageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CultureName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadLanguageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hNewConfig">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddConfigResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadConfigResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadAllConfig">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReadAllConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadAllConfigResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="updatevalue">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="CultureName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateConfigResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateConfigResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadMetaImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CultureName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadMetaImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadMetaImageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMetaImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CultureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsImage">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMetaImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveMetaImageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SaveLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveLanguage" />
+  </wsdl:message>
+  <wsdl:message name="SaveLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateLanguage" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteLanguage" />
+  </wsdl:message>
+  <wsdl:message name="DeleteLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveLanguageAndConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveLanguageAndConfig" />
+  </wsdl:message>
+  <wsdl:message name="SaveLanguageAndConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveLanguageAndConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchLanguage" />
+  </wsdl:message>
+  <wsdl:message name="SearchLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadLanguage" />
+  </wsdl:message>
+  <wsdl:message name="ReadLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:AddConfig" />
+  </wsdl:message>
+  <wsdl:message name="AddConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:AddConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadConfig" />
+  </wsdl:message>
+  <wsdl:message name="ReadConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadAllConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadAllConfig" />
+  </wsdl:message>
+  <wsdl:message name="ReadAllConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadAllConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateConfig" />
+  </wsdl:message>
+  <wsdl:message name="UpdateConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadMetaImageSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadMetaImage" />
+  </wsdl:message>
+  <wsdl:message name="ReadMetaImageSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadMetaImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveMetaImageSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMetaImage" />
+  </wsdl:message>
+  <wsdl:message name="SaveMetaImageSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMetaImageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceEngineSoap">
+    <wsdl:operation name="SaveLanguage">
+      <wsdl:input message="tns:SaveLanguageSoapIn" />
+      <wsdl:output message="tns:SaveLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLanguage">
+      <wsdl:input message="tns:UpdateLanguageSoapIn" />
+      <wsdl:output message="tns:UpdateLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLanguage">
+      <wsdl:input message="tns:DeleteLanguageSoapIn" />
+      <wsdl:output message="tns:DeleteLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveLanguageAndConfig">
+      <wsdl:input message="tns:SaveLanguageAndConfigSoapIn" />
+      <wsdl:output message="tns:SaveLanguageAndConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchLanguage">
+      <wsdl:input message="tns:SearchLanguageSoapIn" />
+      <wsdl:output message="tns:SearchLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadLanguage">
+      <wsdl:input message="tns:ReadLanguageSoapIn" />
+      <wsdl:output message="tns:ReadLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddConfig">
+      <wsdl:input message="tns:AddConfigSoapIn" />
+      <wsdl:output message="tns:AddConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadConfig">
+      <wsdl:input message="tns:ReadConfigSoapIn" />
+      <wsdl:output message="tns:ReadConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadAllConfig">
+      <wsdl:input message="tns:ReadAllConfigSoapIn" />
+      <wsdl:output message="tns:ReadAllConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfig">
+      <wsdl:input message="tns:UpdateConfigSoapIn" />
+      <wsdl:output message="tns:UpdateConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadMetaImage">
+      <wsdl:input message="tns:ReadMetaImageSoapIn" />
+      <wsdl:output message="tns:ReadMetaImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMetaImage">
+      <wsdl:input message="tns:SaveMetaImageSoapIn" />
+      <wsdl:output message="tns:SaveMetaImageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceEngineSoap" type="tns:ServiceEngineSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveLanguage">
+      <soap:operation soapAction="http://tempuri.org/SaveLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLanguage">
+      <soap:operation soapAction="http://tempuri.org/UpdateLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLanguage">
+      <soap:operation soapAction="http://tempuri.org/DeleteLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveLanguageAndConfig">
+      <soap:operation soapAction="http://tempuri.org/SaveLanguageAndConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchLanguage">
+      <soap:operation soapAction="http://tempuri.org/SearchLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadLanguage">
+      <soap:operation soapAction="http://tempuri.org/ReadLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddConfig">
+      <soap:operation soapAction="http://tempuri.org/AddConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadConfig">
+      <soap:operation soapAction="http://tempuri.org/ReadConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadAllConfig">
+      <soap:operation soapAction="http://tempuri.org/ReadAllConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfig">
+      <soap:operation soapAction="http://tempuri.org/UpdateConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadMetaImage">
+      <soap:operation soapAction="http://tempuri.org/ReadMetaImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMetaImage">
+      <soap:operation soapAction="http://tempuri.org/SaveMetaImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceEngineSoap12" type="tns:ServiceEngineSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveLanguage">
+      <soap12:operation soapAction="http://tempuri.org/SaveLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLanguage">
+      <soap12:operation soapAction="http://tempuri.org/UpdateLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLanguage">
+      <soap12:operation soapAction="http://tempuri.org/DeleteLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveLanguageAndConfig">
+      <soap12:operation soapAction="http://tempuri.org/SaveLanguageAndConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchLanguage">
+      <soap12:operation soapAction="http://tempuri.org/SearchLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadLanguage">
+      <soap12:operation soapAction="http://tempuri.org/ReadLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddConfig">
+      <soap12:operation soapAction="http://tempuri.org/AddConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadConfig">
+      <soap12:operation soapAction="http://tempuri.org/ReadConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadAllConfig">
+      <soap12:operation soapAction="http://tempuri.org/ReadAllConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfig">
+      <soap12:operation soapAction="http://tempuri.org/UpdateConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadMetaImage">
+      <soap12:operation soapAction="http://tempuri.org/ReadMetaImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMetaImage">
+      <soap12:operation soapAction="http://tempuri.org/SaveMetaImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceEngine">
+    <wsdl:port name="ServiceEngineSoap" binding="tns:ServiceEngineSoap">
+      <soap:address location="http://www.flywithstyle.com/TPC/WEMS/Language.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceEngineSoap12" binding="tns:ServiceEngineSoap12">
+      <soap12:address location="http://www.flywithstyle.com/TPC/WEMS/Language.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
