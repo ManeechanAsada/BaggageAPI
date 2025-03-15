@@ -51,7 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Core.Lib.Crypto">
-      <HintPath>..\..\..\tikAEROWebCheckinAPI - Copy\tikAEROWebCheckinAPI\tikAEROWebCheckinAPI\bin\Core.Lib.Crypto.dll</HintPath>
+      <HintPath>..\..\Core.Lib.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.5.0.2\lib\net35\NLog.dll</HintPath>
